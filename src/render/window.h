@@ -11,6 +11,8 @@
 using std::vector;
 using std::map;
 using std::string;
+using std::unique_ptr;
+using std::shared_ptr;
 
 #include "shader.h"
 #include "transform.h"
@@ -65,8 +67,8 @@ public:
     void set_perspective( const mat4 perspective ) { m_perspective = perspective; }
     void set_camera_position( const vec3 pos ) { m_camera_transform.set_abs_origin( pos ); }
     void move_camera_position( const vec3 delta ) { m_camera_transform.set_abs_origin( m_camera_transform.get_abs_origin() + delta ); }
-    int add_element( std::shared_ptr<Renderable> element ) { m_elements.push_back( element ); return m_elements.size() - 1; }
-    void remove_element( int index ) { m_elements.erase( m_elements.begin() + index ); }
+    int add_element( unique_ptr<Renderable> &&element );
+    void remove_element( int index );
 
 private:
     WindowID m_ID;
@@ -77,8 +79,8 @@ private:
     float m_FOV;
     mat4 m_perspective;
     Transform m_camera_transform;
-    vector<std::shared_ptr<Renderable>> m_elements;
-    vector<std::unique_ptr<Texture>> m_textures;
+    vector<unique_ptr<Renderable>> m_elements;
+    vector<unique_ptr<Texture>> m_textures;
 
     static bool s_glad_initialized;
 

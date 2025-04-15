@@ -4,7 +4,7 @@
 
 
 Renderable::Renderable( const std::shared_ptr<Window> &container, std::unique_ptr<Transform> &&transform, vector<std::unique_ptr<Renderable>> &&Elements ) :
-    m_container( container ), m_elements( std::move( Elements ) ), m_transform( std::move( transform ) ), m_parent( NULL )
+    m_container( container.get() ), m_elements( std::move( Elements ) ), m_transform( std::move( transform ) ), m_parent( NULL )
 {
     m_transform->m_owning_object = this;
     claim_all_children();
@@ -24,7 +24,9 @@ Renderable &Renderable::operator=( Renderable &&other )
 
     m_elements = std::move( other.m_elements );
     m_transform = std::move( other.m_transform );
-    m_container = std::move( other.m_container );
+    m_container = other.m_container;
+    other.m_container = NULL;
+    other.m_transform->m_owning_object = NULL;
     m_transform->m_owning_object = this;
 
     m_parent = other.m_parent;

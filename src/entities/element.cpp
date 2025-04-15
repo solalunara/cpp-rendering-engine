@@ -30,8 +30,8 @@ Element::~Element()
 
 void Element::render() const
 {
-    if ( auto container = m_container.lock() )
-        container->get_shader().SetShaderValue( "UI", false );
+    if ( m_container )
+        m_container->get_shader().SetShaderValue( "UI", false );
     else
         printf( "Element has persisted beyond the lifetime of the window it belongs to" );
     Renderable::render();
@@ -40,8 +40,8 @@ void Element::render() const
 
 void UIElement::render() const
 {
-    if ( auto container = m_container.lock() )
-        container->get_shader().SetShaderValue( "UI", true );
+    if ( m_container )
+        m_container->get_shader().SetShaderValue( "UI", true );
     else
         printf( "UI element has persisted beyond the lifetime of the window it belongs to" );
     Renderable::render();

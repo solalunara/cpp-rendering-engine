@@ -68,11 +68,11 @@ int main( int argc, const char *argv[] )
         printf( "Couldn't initialize glfw\n" );
 
     vector<GlobalTexture> WindowTextureList = {
-        GlobalTexture( "./assets/textures/black.png" ),
-        GlobalTexture( "./assets/textures/dirt.png" ),
-        GlobalTexture( "./assets/textures/grass.png" ),
-        GlobalTexture( "./assets/textures/metal.png" ),
-        GlobalTexture( "./assets/textures/universe.png" )
+        GlobalTexture( "./assets/textures/base/black.png" ),
+        GlobalTexture( "./assets/textures/base/dirt.png" ),
+        GlobalTexture( "./assets/textures/base/grass.png" ),
+        GlobalTexture( "./assets/textures/base/metal.png" ),
+        GlobalTexture( "./assets/textures/base/universe.png" )
     };
 
     // first window creation neccesary to init glad (gl____() functions)
@@ -84,11 +84,11 @@ int main( int argc, const char *argv[] )
     CheckOpenGLVersion();
 
     map<InbuiltTexture, GlobalTexture> Textures = {
-        { InbuiltTexture::black, GlobalTexture( "./assets/textures/black.png" ) },
-        { InbuiltTexture::dirt, GlobalTexture( "./assets/textures/dirt.png" ) },
-        { InbuiltTexture::grass, GlobalTexture( "./assets/textures/grass.png" ) },
-        { InbuiltTexture::metal, GlobalTexture( "./assets/textures/metal.png" ) },
-        { InbuiltTexture::universe, GlobalTexture( "./assets/textures/universe.png" ) },
+        { InbuiltTexture::black, GlobalTexture( "./assets/textures/base/black.png" ) },
+        { InbuiltTexture::dirt, GlobalTexture( "./assets/textures/base/dirt.png" ) },
+        { InbuiltTexture::grass, GlobalTexture( "./assets/textures/base/grass.png" ) },
+        { InbuiltTexture::metal, GlobalTexture( "./assets/textures/base/metal.png" ) },
+        { InbuiltTexture::universe, GlobalTexture( "./assets/textures/base/universe.png" ) },
     };
 
     std::vector<std::shared_ptr<Window>> Windows;
@@ -97,8 +97,8 @@ int main( int argc, const char *argv[] )
     for ( int i = 1; i < argc; ++i )
     {
         std::shared_ptr<Window> w = std::make_shared<Window>( WindowState::Windowed, 90.f, 200, 152, argv[ i ], WindowTextureList );
-        shared_ptr<Cube> c = make_shared<Cube>( glm::vec3( -.5f, -.5f, -.5f ), glm::vec3( .5f, .5f, .5f ), make_unique<Transform>( glm::vec3( 0 ), glm::identity<glm::quat>(), glm::vec3( 1 ) ), Textures[ InbuiltTexture::universe ], w );
-        w->add_element( c );
+        unique_ptr<Cube> c = make_unique<Cube>( glm::vec3( -.5f, -.5f, -.5f ), glm::vec3( .5f, .5f, .5f ), make_unique<Transform>( glm::vec3( 0 ), glm::identity<glm::quat>(), glm::vec3( 1 ) ), Textures[ InbuiltTexture::universe ], w );
+        w->add_element( std::move( c ) );
         Windows.push_back( w );
     }
 
@@ -115,7 +115,7 @@ int main( int argc, const char *argv[] )
         Textures[ InbuiltTexture::grass ], 
         Textures[ InbuiltTexture::dirt ] };
 
-    main->add_element( make_shared<Cube>( glm::vec3( -.5f, -.5f, -.5f ), glm::vec3( .5f, .5f, .5f ), make_unique<Transform>( glm::vec3( 0 ), glm::identity<glm::quat>(), glm::vec3( 1 ) ), Textures[ InbuiltTexture::universe ], main ) );
+    main->add_element( make_unique<Cube>( glm::vec3( -.5f, -.5f, -.5f ), glm::vec3( .5f, .5f, .5f ), make_unique<Transform>( glm::vec3( 0 ), glm::identity<glm::quat>(), glm::vec3( 1 ) ), Textures[ InbuiltTexture::universe ], main ) );
     //set the ground
     /*
     #define INT_GROUND_SIZE 10
@@ -161,4 +161,5 @@ int main( int argc, const char *argv[] )
         }
     }
     glfwTerminate();
+    return 0;
 }

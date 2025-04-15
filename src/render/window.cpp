@@ -225,6 +225,17 @@ unsigned int Window::get_texture_opengl_id( GlobalTexture tex ) const
     return -1;
 }
 
+int Window::add_element(unique_ptr<Renderable> &&element)
+{ 
+    m_elements.push_back( std::move( element ) ); 
+    return m_elements.size() - 1;
+}
+
+void Window::remove_element(int index)
+{ 
+    m_elements.erase( m_elements.begin() + index );
+}
+
 void ResizeCallback( WindowID window, int width, int height )
 {
     glfwMakeContextCurrent( window );

@@ -181,17 +181,16 @@ Mesh &Mesh::operator=( Mesh &&other )
 
 void Mesh::render() const
 {
-    std::shared_ptr<Window> container = m_container.lock();
-    if ( !container )
+    if ( !m_container )
     {
         printf( "Error - cannot render mesh, window was deleted" );
         return;
     }
-    glfwMakeContextCurrent( container->ID );
-    container->get_shader().SetShaderValue( "Text", is_text() );
-    container->get_shader().SetShaderValue( "Transform", m_transform->get_matrix() );
+    glfwMakeContextCurrent( m_container->ID );
+    m_container->get_shader().SetShaderValue( "Text", is_text() );
+    m_container->get_shader().SetShaderValue( "Transform", m_transform->get_matrix() );
     glActiveTexture( GL_TEXTURE0 );
-    glBindTexture( GL_TEXTURE_2D, container->get_texture_opengl_id( texture ) );
+    glBindTexture( GL_TEXTURE_2D, m_container->get_texture_opengl_id( texture ) );
     glBindVertexArray( m_VAO );
     glDrawElements( GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0 );
 }
@@ -230,11 +229,11 @@ vector<vec3> Mesh::get_vertices( bool local )
 
 void CharacterMesh::render() const
 {
-    if ( auto container = m_container.lock() )
+    if ( m_container )
     {
-        container->get_shader().SetShaderValue( "TextColorX", Color.x );
-        container->get_shader().SetShaderValue( "TextColorY", Color.y );
-        container->get_shader().SetShaderValue( "TextColorZ", Color.z );
+        m_container->get_shader().SetShaderValue( "TextColorX", Color.x );
+        m_container->get_shader().SetShaderValue( "TextColorY", Color.y );
+        m_container->get_shader().SetShaderValue( "TextColorZ", Color.z );
     }
     else
         printf( "Error - CharacterMesh has outlived its window" );

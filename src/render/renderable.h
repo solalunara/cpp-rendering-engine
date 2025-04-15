@@ -47,10 +47,13 @@ protected:
 
     vector<unique_ptr<Renderable>> m_elements;
     unique_ptr<Transform> m_transform;
-    weak_ptr<Window> m_container;
 
     //parent owns child, so this pointer is always valid or null
     Renderable *m_parent;
+
+    //window owns root renderable for this renderable, which owns this renderable -
+    //this object cannot live past the lifetime of the renderable;
+    Window *m_container;
 };
 
 #endif // RENDERABLE_H
