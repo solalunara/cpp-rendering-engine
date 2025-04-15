@@ -12,9 +12,13 @@ uniform float TextColorZ; \
 out vec3 TextColor; \
 uniform int Text; \
 flat out int TextF; \
+uniform int UI; \
 void main() \
 { \
-    gl_Position = Perspective * CameraTransform * Transform * vec4( pos, 1.0 ); \
+    if ( UI != 0 ) \
+        gl_Position = Transform * vec4( pos, 1.0 ); \
+    else \
+        gl_Position = Perspective * CameraTransform * Transform * vec4( pos, 1.0 ); \
     TexCoord = InTexCoord; \
     TextColor = vec3( TextColorX, TextColorY, TextColorZ ); \
     TextF = Text; \

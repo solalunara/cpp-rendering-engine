@@ -58,6 +58,8 @@ Mesh::Mesh( float *verts, unsigned long long verts_len, unsigned int *inds, unsi
         vec3 a = __verts_pts[ 1 ] - __verts_pts[ 0 ];
         vec3 b = __verts_pts[ 2 ] - __verts_pts[ 1 ];
         m_norm = glm::normalize( glm::cross( a, b ) );
+
+        //double check for if there's more than 3 points
         if ( verts_len > 3*5 )
         {
             float dist = glm::dot( a, m_norm );

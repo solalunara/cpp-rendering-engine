@@ -125,3 +125,9 @@ const mat4 Renderable::get_inverse_transform_matrix() const
 {
     return m_transform->get_inverse_matrix();
 }
+
+void Renderable::add_child( unique_ptr<Renderable> &&child )
+{
+    child->m_parent = this;
+    m_elements.push_back( std::move( child ) );
+}

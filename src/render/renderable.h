@@ -37,6 +37,8 @@ struct Renderable
     const Renderable * const &parent = m_parent;
     const mat4 get_transform_matrix() const;
     const mat4 get_inverse_transform_matrix() const;
+
+    void add_child( unique_ptr<Renderable> &&child );
 protected:
     //abstract class, all constructors & operators should only be accessible from derived classes
     Renderable( const shared_ptr<Window> &container, std::unique_ptr<Transform> &&transform, vector<unique_ptr<Renderable>> &&Elements );

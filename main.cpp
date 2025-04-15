@@ -72,7 +72,11 @@ int main( int argc, const char *argv[] )
         GlobalTexture( "./assets/textures/base/dirt.png" ),
         GlobalTexture( "./assets/textures/base/grass.png" ),
         GlobalTexture( "./assets/textures/base/metal.png" ),
-        GlobalTexture( "./assets/textures/base/universe.png" )
+        GlobalTexture( "./assets/textures/base/universe.png" ),
+        GlobalTexture( "./assets/textures/blankfolder.png" ),
+        GlobalTexture( "./assets/textures/galaxyfolder.png" ),
+        GlobalTexture( "./assets/textures/planetfolder.png" ),
+        GlobalTexture( "./assets/textures/starfolder.png" ),
     };
 
     // first window creation neccesary to init glad (gl____() functions)
@@ -115,7 +119,13 @@ int main( int argc, const char *argv[] )
         Textures[ InbuiltTexture::grass ], 
         Textures[ InbuiltTexture::dirt ] };
 
-    main->add_element( make_unique<Cube>( glm::vec3( -.5f, -.5f, -.5f ), glm::vec3( .5f, .5f, .5f ), make_unique<Transform>( glm::vec3( 0 ), glm::identity<glm::quat>(), glm::vec3( 1 ) ), Textures[ InbuiltTexture::universe ], main ) );
+    glm::quat rot_angle = glm::angleAxis( M_PIf, vec3( 1, 0, 0 ) );
+    unique_ptr<UIElement> folder = make_unique<UIElement>( main, make_unique<Transform>( glm::vec3( 0 ), glm::identity<quat>(), glm::vec3( 1 ) ) );
+    unique_ptr<Mesh> folder_mesh = make_unique<Mesh>( glm::vec2( -.5f, -.5f ), glm::vec2( .5f, .5f ), GlobalTexture( "./assets/textures/blankfolder.png" ), make_unique<Transform>( glm::vec3( 0 ), rot_angle, glm::vec3( 1 ) ), main );
+    folder->add_child( std::move( folder_mesh ) );
+    main->add_element( std::move( folder ) );
+
+    //main->add_element( make_unique<Cube>( glm::vec3( -.5f, -.5f, -.5f ), glm::vec3( .5f, .5f, .5f ), make_unique<Transform>( glm::vec3( 0 ), glm::identity<glm::quat>(), glm::vec3( 1 ) ), GlobalTexture( "./assets/textures/blankfolder.png" ), main ) );
     //set the ground
     /*
     #define INT_GROUND_SIZE 10
