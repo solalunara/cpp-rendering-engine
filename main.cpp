@@ -10,6 +10,7 @@ using std::make_unique;
 
 #include "render/window.h"
 #include "entities/cube.h"
+#include "entities/sprite.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -120,9 +121,7 @@ int main( int argc, const char *argv[] )
         Textures[ InbuiltTexture::dirt ] };
 
     glm::quat rot_angle = glm::angleAxis( M_PIf, vec3( 1, 0, 0 ) );
-    unique_ptr<UIElement> folder = make_unique<UIElement>( main, make_unique<Transform>( glm::vec3( 0 ), glm::identity<quat>(), glm::vec3( 1 ) ) );
-    unique_ptr<Mesh> folder_mesh = make_unique<Mesh>( glm::vec2( -.5f, -.5f ), glm::vec2( .5f, .5f ), GlobalTexture( "./assets/textures/blankfolder.png" ), make_unique<Transform>( glm::vec3( 0 ), rot_angle, glm::vec3( 1 ) ), main );
-    folder->add_child( std::move( folder_mesh ) );
+    unique_ptr<Sprite> folder = make_unique<Sprite>( main, GlobalTexture( "./assets/textures/blankfolder.png" ), glm::vec2( -.5f, -.5f ), glm::vec2( .5f, .5f ), make_unique<Transform>( glm::vec3( 0 ), glm::identity<quat>(), glm::vec3( 1 ) ) );
     main->add_element( std::move( folder ) );
 
     //main->add_element( make_unique<Cube>( glm::vec3( -.5f, -.5f, -.5f ), glm::vec3( .5f, .5f, .5f ), make_unique<Transform>( glm::vec3( 0 ), glm::identity<glm::quat>(), glm::vec3( 1 ) ), GlobalTexture( "./assets/textures/blankfolder.png" ), main ) );
@@ -138,9 +137,6 @@ int main( int argc, const char *argv[] )
     */
     
     main->set_camera_position( vec3( 0, 0, 3 ) );
-
-    vec3 player_mins = vec3( -.2f, -1.2f, -.2f );
-    vec3 player_maxs = vec3(  .2f,   .2f,  .2f );
 
     while ( main )
     {
@@ -163,6 +159,11 @@ int main( int argc, const char *argv[] )
                     main = 0;
                 }
                 continue;
+            }
+            if ( main == NULL )
+            {
+                Windows.clear();
+                break;
             }
 
             WindowRender( Windows[ i ] );

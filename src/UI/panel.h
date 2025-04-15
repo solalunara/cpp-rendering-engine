@@ -4,6 +4,7 @@
 #pragma once
 
 #include "entities/element.h"
+#include "entities/ui_element.h"
 #include <cstring>
 
 struct Text;

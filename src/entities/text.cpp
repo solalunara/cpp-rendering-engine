@@ -2,13 +2,14 @@
 #include "render/mesh.h"
 #include "render/window.h"
 #include "UI/font.h"
+#include "ui_element.h"
 #include <cstring>
 
 using std::make_unique;
 using std::unique_ptr;
 
 UIText::UIText( const char *text, Font font, float x, float y, float scale, vec3 color, const shared_ptr<Window> &container ) :
-    UIElement( container, make_unique<Transform>( vec3( x, y, -1 ), glm::identity<quat>(), glm::one<vec3>() ) )
+    UIElement( container, make_unique<Transform>( vec3( x, y, -1 ), glm::identity<quat>(), glm::one<vec3>() ), vector<unique_ptr<Renderable>>() )
 {
     unsigned long long len = strlen( text );
     struct Data
@@ -49,6 +50,7 @@ UIText::UIText( const char *text, Font font, float x, float y, float scale, vec3
             data[ i ].ch.TextureID, make_unique<Transform>( vec3( data[ i ].xpos - TextWidth / 2, data[ i ].ypos, 0 ), glm::identity<quat>(), glm::one<vec3>() ), 
             container, color, text[ i ], this ) );
     }
+    claim_all_children();
 }
 
 Text3D::Text3D( const char *text, Font font, float x, float y, float z, float scale, vec3 color, const shared_ptr<Window> &container ) :

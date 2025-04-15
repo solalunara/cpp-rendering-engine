@@ -36,13 +36,3 @@ void Element::render() const
         printf( "Element has persisted beyond the lifetime of the window it belongs to" );
     Renderable::render();
 }
-
-
-void UIElement::render() const
-{
-    if ( m_container )
-        m_container->get_shader().SetShaderValue( "UI", true );
-    else
-        printf( "UI element has persisted beyond the lifetime of the window it belongs to" );
-    Renderable::render();
-}

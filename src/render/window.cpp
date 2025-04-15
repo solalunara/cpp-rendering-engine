@@ -86,7 +86,6 @@ Window::Window( WindowState state, float FOV, int xres, int yres, const char *na
 
     //this is needed to access this window object from the opengl callbacks (e.g. resize)
     glfwSetWindowUserPointer( ID, this );
-    ResizeCallback( ID, xres, yres );
 
     glEnable( GL_DEPTH_TEST );
 	glEnable( GL_FRAMEBUFFER_SRGB );

@@ -36,15 +36,4 @@ protected:
 
 };
 
-struct UIElement :
-    public Element
-{
-    UIElement( const std::shared_ptr<Window> &container, std::unique_ptr<Transform> &&transform ) :
-        Element( container, std::move( transform ), std::move( vector<std::unique_ptr<Renderable>>() ) )
-    {
-    }
-
-    virtual void render() const;
-};
-
 #endif

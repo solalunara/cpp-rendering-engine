@@ -2,7 +2,7 @@
 #define TEXT_H
 #pragma once
 
-#include "element.h"
+#include "ui_element.h"
 
 struct CharacterMesh;
 struct Font;
