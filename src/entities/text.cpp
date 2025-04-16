@@ -1,7 +1,10 @@
-// This file is an adapted version of a file that originated in 2022 by the same author
+// This file is an adapted version of a file that originated in 2023 by the same author
 // as part of a project that received periodic updates through 2024
+// the file in that project was a derivative of a file originally written by Joey de Vries made avaliable via learnopengl.com
+// where much of the original logic for interfacing with freetype was written
 // this version primarily updates the constructors to either not use pointers at all or to use smart pointers
 // to see the original, go to https://github.com/solalunara/phys/blob/main/src/entities/text.cpp
+// to see the file by Joey de Vries, go to https://github.com/JoeyDeVries/LearnOpenGL/blob/master/src/7.in_practice/2.text_rendering/text_rendering.cpp
 
 #include "text.h"
 #include "render/mesh.h"

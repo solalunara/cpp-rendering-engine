@@ -1,5 +1,7 @@
 // This file is an adapted version of a file that originated in 2022 by the same author
 // as part of a project that received periodic updates through 2024
+// the file in that project was a derivative of a file originally written by Joey de Vries made avaliable via learnopengl.com
+// where much of the original logic for interfacing with opengl was written
 // the changes in this version are
 //      - un-deletion of move constructor and declaration of move operator
 //      - corrected handling of virtual render() function
@@ -7,6 +9,7 @@
 //      - replace texture with globaltexture
 //      - replace raw pointers for transform and window with smart pointers
 // to see the original, go to https://github.com/solalunara/phys/blob/main/src/render/mesh.h
+// to see the file by Joey de Vries, go to https://github.com/JoeyDeVries/LearnOpenGL/blob/master/includes/learnopengl/mesh.h
 
 #ifndef MESH_H
 #define MESH_H

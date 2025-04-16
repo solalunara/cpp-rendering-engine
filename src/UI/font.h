@@ -1,7 +1,10 @@
 // This file is an adapted version of a file that originated in 2023 by the same author
 // as part of a project that received periodic updates through 2024
+// the file in that project was a derivative of a file originally written by Joey de Vries made avaliable via learnopengl.com
+// where much of the original logic for interfacing with freetype was written
 // the only change in this version is removing the pointer to globaltexture in glyph
 // to see the original, go to https://github.com/solalunara/phys/blob/main/src/UI/font.h
+// to see the file by Joey de Vries, go to https://github.com/JoeyDeVries/LearnOpenGL/blob/master/src/7.in_practice/2.text_rendering/text_rendering.cpp
 
 #ifndef FONT_H
 #define FONT_H

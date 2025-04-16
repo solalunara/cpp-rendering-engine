@@ -1,4 +1,4 @@
-// This file is an adapted version of a file that originated in 2022 by the same author
+// This file is an adapted version of a file that originated in 2023 by the same author
 // as part of a project that received periodic updates through 2024
 // this version primarily updates the constructors to either not use pointers at all or to use smart pointers
 // to see the original, go to https://github.com/solalunara/phys/blob/main/src/entities/text.h

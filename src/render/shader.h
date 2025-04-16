@@ -1,10 +1,13 @@
 // This file is an adapted version of a file that originated in 2022 by the same author
 // as part of a project that received periodic updates through 2024
+// the file in that project was a derivative of a file originally written by Joey de Vries made avaliable via learnopengl.com
+// where much of the original logic for interfacing with opengl was written
 // the changes in this version are
 //      - move constructor and assignment operator declaration
 //      - tracking of windowID
 //      - addition of InitShader(), to be called when the program is ready to init data
 // to see the original, go to https://github.com/solalunara/phys/blob/main/src/render/shader.h
+// to see the file by Joey de Vries, go to https://github.com/JoeyDeVries/LearnOpenGL/blob/master/includes/learnopengl/shader.h
 
 #ifndef SHADER_H
 #define SHADER_H

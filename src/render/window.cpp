@@ -1,5 +1,7 @@
 // This file is an adapted version of a file that originated in 2022 by the same author
 // as part of a project that received periodic updates through 2024
+// the file in that project was a derivative of a file originally written by Joey de Vries made avaliable via learnopengl.com
+// where much of the original logic for interfacing with opengl was written
 // the changes in this version are
 //      - move assignment operator definition and undeleting move constructor
 //      - removing references to physics
