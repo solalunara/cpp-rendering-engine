@@ -1,3 +1,8 @@
+// This file is an adapted version of a file that originated in 2023 by the same author
+// as part of a project that received periodic updates through 2024
+// the only change in this version is removing the pointer to globaltexture in glyph
+// to see the original, go to https://github.com/solalunara/phys/blob/main/src/UI/font.h
+
 #ifndef FONT_H
 #define FONT_H
 #pragma once

@@ -1,3 +1,10 @@
+// This file is an adapted version of a file that originated in 2022 by the same author
+// as part of a project that received periodic updates through 2024
+// what's changed in this version is that the transform searches through its owning renderable if it exists
+// to look for a parent rather than having a parent transform
+// as well as minor function changes like const handling and local functions
+// to see the original, go to https://github.com/solalunara/phys/blob/main/src/render/transform.h
+
 #ifndef TRANSFORM_H
 #define TRANSFORM_H
 

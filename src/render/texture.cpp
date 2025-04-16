@@ -1,3 +1,8 @@
+// This file is an adapted version of a file that originated in 2022 by the same author
+// as part of a project that received periodic updates through 2024
+// there are no important changes to this file
+// to see the original, go to https://github.com/solalunara/phys/blob/main/src/render/texture.cpp
+
 #include "texture.h"
 #include "window.h"
 

@@ -1,3 +1,14 @@
+// This file is a heavily adapted version of a file that originated in 2022 by the same author
+// as part of a project that received periodic updates through 2024
+// the changes in this version are
+//      - default constructor declaration
+//      - move/copy constructor declarations
+//      - move/copy assignment operator declarations
+//      - const char * to string for memory safety
+//      - everything relating to RawTextureData
+//      - removal of the find_local_texture() function
+// to see the original, go to https://github.com/solalunara/phys/blob/main/src/render/GlobalTexture.h
+
 #ifndef GLOBALTEXTURE_H
 #define GLOBALTEXTURE_H
 

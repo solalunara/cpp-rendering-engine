@@ -1,3 +1,12 @@
+// This file is an adapted version of a file that originated in 2022 by the same author
+// as part of a project that received periodic updates through 2024
+// the changes in this version are
+//      - un-deleting move constructor and declaring move assignment operator
+//      - refactoring pointers to smart pointers and reworking the associated logic
+//      - const handling
+//      - removing references to physics
+// to see the original, go to https://github.com/solalunara/phys/blob/main/src/entities/element.h
+
 #ifndef ELEMENT_H
 #define ELEMENT_H
 

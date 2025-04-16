@@ -1,3 +1,11 @@
+// This file is an adapted version of a file that originated in 2022 by the same author
+// as part of a project that received periodic updates through 2024
+// the changes in this version are
+//      - move constructor and assignment operator declaration
+//      - tracking of windowID
+//      - addition of InitShader(), to be called when the program is ready to init data
+// to see the original, go to https://github.com/solalunara/phys/blob/main/src/render/shader.h
+
 #ifndef SHADER_H
 #define SHADER_H
 

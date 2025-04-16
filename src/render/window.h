@@ -1,3 +1,14 @@
+// This file is an adapted version of a file that originated in 2022 by the same author
+// as part of a project that received periodic updates through 2024
+// the changes in this version are
+//      - move assignment operator declaration and undeleting move constructor
+//      - removing references to physics
+//      - restructure public/private split
+//      - added window ownership handling for renderables and textures
+//          incl. upgrading to smart pointers
+//      - a new function, get_texture_opengl_id, for use in the mesh rendering process
+// to see the original, go to https://github.com/solalunara/phys/blob/main/src/render/window.h
+
 #ifndef WINDOW_H
 #define WINDOW_H
 

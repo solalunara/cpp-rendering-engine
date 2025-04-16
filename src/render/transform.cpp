@@ -1,3 +1,9 @@
+// This is a new file that uses code from a file that originated in 2022 by the same author
+// as part of a project that received periodic updates through 2024
+// what's changed in this version is that the transform searches through its owning renderable if it exists
+// to look for a parent rather than having a parent transform
+// to see the original, go to https://github.com/solalunara/phys/blob/main/src/render/transform.h
+
 #include "transform.h"
 #include "renderable.h"
 

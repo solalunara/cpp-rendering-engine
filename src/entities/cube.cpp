@@ -1,3 +1,8 @@
+// This file is an adapted version of a file that originated in 2022 by the same author
+// as part of a project that received periodic updates through 2024
+// the main change in this version is modifying the constructor to use smart pointers, global textures, and a vector
+// to see the original, go to https://github.com/solalunara/phys/blob/main/src/entities/cube.cpp
+
 #include "cube.h"
 #include "render/window.h"
 #include "render/GlobalTexture.h"

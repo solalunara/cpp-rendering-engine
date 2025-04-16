@@ -1,3 +1,12 @@
+// This file is an adapted version of a file that originated in 2022 by the same author
+// as part of a project that received periodic updates through 2024
+// the changes in this version are
+//      - un-deleting move constructor and defining move assignment operator
+//      - refactoring pointers to smart pointers and reworking the associated logic
+//      - claim_all_children(), a completely new helper function for setting the parent of children from derived classes
+//      - const handling
+// to see the original, go to https://github.com/solalunara/phys/blob/main/src/render/renderable.cpp
+
 #include "renderable.h"
 #include "mesh.h"
 #include "window.h"

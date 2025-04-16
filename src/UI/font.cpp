@@ -1,3 +1,8 @@
+// This file originated in 2023 by the same author
+// as part of a project that received periodic updates through 2024
+// there have been no significant changes to this version of the file
+// to see the original, go to https://github.com/solalunara/phys/blob/main/src/UI/font.cpp
+
 #include "UI/font.h"
 #include "render/GlobalTexture.h"
 #include <string>

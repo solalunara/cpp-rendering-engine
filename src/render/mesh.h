@@ -1,3 +1,13 @@
+// This file is an adapted version of a file that originated in 2022 by the same author
+// as part of a project that received periodic updates through 2024
+// the changes in this version are
+//      - un-deletion of move constructor and declaration of move operator
+//      - corrected handling of virtual render() function
+//      - removal of references to smallest_inter_point_distance and vertex point cache
+//      - replace texture with globaltexture
+//      - replace raw pointers for transform and window with smart pointers
+// to see the original, go to https://github.com/solalunara/phys/blob/main/src/render/mesh.h
+
 #ifndef MESH_H
 #define MESH_H
 

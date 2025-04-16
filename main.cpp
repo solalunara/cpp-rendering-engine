@@ -1,3 +1,14 @@
+// This file is an adapted version of a file that originated in 2022 by the same author
+// as part of a project that received periodic updates through 2024
+// to see the original, go to https://github.com/solalunara/phys/blob/main/main.cpp
+
+// this main file is used because it encapsulates a window system
+// the code made for this programming project is marked in if statements of
+#define CPP_PROJECT
+// all code not wrapped in an "#if CPP_PROJECT - #endif" should be treated as an external library
+// albeit one significantly refactored for use in this project
+
+
 #include <cstdlib>
 #include <iostream>
 #include <vector> 
@@ -120,9 +131,10 @@ int main( int argc, const char *argv[] )
         Textures[ InbuiltTexture::grass ], 
         Textures[ InbuiltTexture::dirt ] };
 
-    glm::quat rot_angle = glm::angleAxis( M_PIf, vec3( 1, 0, 0 ) );
+#ifdef CPP_PROJECT
     unique_ptr<Sprite> folder = make_unique<Sprite>( main, GlobalTexture( "./assets/textures/blankfolder.png" ), glm::vec2( -.5f, -.5f ), glm::vec2( .5f, .5f ), make_unique<Transform>( glm::vec3( 0 ), glm::identity<quat>(), glm::vec3( 1 ) ) );
     main->add_element( std::move( folder ) );
+#endif
 
     //main->add_element( make_unique<Cube>( glm::vec3( -.5f, -.5f, -.5f ), glm::vec3( .5f, .5f, .5f ), make_unique<Transform>( glm::vec3( 0 ), glm::identity<glm::quat>(), glm::vec3( 1 ) ), GlobalTexture( "./assets/textures/blankfolder.png" ), main ) );
     //set the ground

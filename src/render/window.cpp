@@ -1,3 +1,13 @@
+// This file is an adapted version of a file that originated in 2022 by the same author
+// as part of a project that received periodic updates through 2024
+// the changes in this version are
+//      - move assignment operator definition and undeleting move constructor
+//      - removing references to physics
+//      - added window ownership handling for renderables and textures
+//          incl. upgrading to smart pointers
+//      - a new function, get_texture_opengl_id, for use in the mesh rendering process
+// to see the original, go to https://github.com/solalunara/phys/blob/main/src/render/window.cpp
+
 #include "window.h"
 #include "mesh.h"
 #include "texture.h"

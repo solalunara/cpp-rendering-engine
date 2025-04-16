@@ -1,3 +1,14 @@
+// This file is an adapted version of a file that originated in 2022 by the same author
+// as part of a project that received periodic updates through 2024
+// the changes in this version are
+//      - un-deletion of move constructor and definition of move operator
+//      - corrected handling of virtual render() function
+//      - removal of references to smallest_inter_point_distance and vertex point cache
+//      - replace texture with globaltexture
+//      - refactor charactermesh rendering to take advantage of virtual functions to not cast down
+//      - replace raw pointers for transform and window with smart pointers
+// to see the original, go to https://github.com/solalunara/phys/blob/main/src/render/mesh.cpp
+
 #include "mesh.h"
 
 #include "texture.h"

@@ -1,3 +1,13 @@
+// This file is an adapted version of a file that originated in 2022 by the same author
+// as part of a project that received periodic updates through 2024
+// the changes in this version are
+//      - un-deleting move constructor and declaring move assignment operator
+//      - refactoring pointers to smart pointers and reworking the associated logic
+//      - reworked public/protected data split
+//      - claim_all_children(), a completely new helper function for setting the parent of children from derived classes
+//      - const handling
+// to see the original, go to https://github.com/solalunara/phys/blob/main/src/render/renderable.h
+
 #ifndef RENDERABLE_H
 #define RENDERABLE_H
 
@@ -54,7 +64,7 @@ protected:
     Renderable *m_parent;
 
     //window owns root renderable for this renderable, which owns this renderable -
-    //this object cannot live past the lifetime of the renderable;
+    //this object cannot live past the lifetime of the window
     Window *m_container;
 };
 
